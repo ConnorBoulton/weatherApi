@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css" type="text/css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Cormorant+Garamond:ital,wght@1,500&family=Oswald:wght@200;400&family=PT+Serif&display=swap" rel="stylesheet">
+    <title>Open Weather Api</title>
+</head>
+<body>
+    <div class="container">
+        <span class="input-span">
+            <input type="text" placeholder="search city" class="city-input">
+            <button class="img-button"><img alt="search" src="https://cdn-icons-png.flaticon.com/512/64/64673.png" width="30px" height="30px"></button>
+        </span>
+
+        <h1 class="city">Enter City Name!</h1>
+
+        <div class="weather-info-container">
+            <span class="weather-temp">
+                <h2 class="temp">temp</h2>
+                <span class="speed-hum">
+                    <h3 class="max-temp">Max Temp: </h3>
+                    <h3 class="min-temp">Min Temp: </h3>
+                    <br>
+                    <h3 class="speed">Wind Speed:</h3>
+                    <h3 class="humidity">Humidity: </h3>
+                </span>
+            </span>
+            <span class="weather-description">
+                <img class="icon-img" alt="icon" src="https://cdn-icons-png.flaticon.com/512/890/890347.png" width="80px" height="80px">
+                <h2 class="description">Weather Description</h2>
+            </span>
+        </div>
+    </div>
+
+    <script src="/js"></script>
+    <script src="/app.js"></script>
+</body>
+</html>
