@@ -1,6 +1,15 @@
 let weather = {
     apiKey: "28d979dab7bee75e908648eab906633f",
 
+    fetchWeatherByZip: function (zip) {
+      fetch(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},us&units=imperial&appid=${this.apiKey}`)
+      .then(res => res.json())
+      .then(data => this.weatherStats(data))
+      .catch(err => {
+          alert(err)
+      })  
+    },
+
     fetchWeather: function (city) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${this.apiKey}`)
         .then(res => res.json())
@@ -26,8 +35,13 @@ let weather = {
         document.querySelector(".speed").innerHTML = `Wind Speed: ${Math.round(speed)} mph`
         document.querySelector(".humidity").innerHTML = `Humidity: ${humidity}%`
     },
-    search: function () {
-        this.fetchWeather(document.querySelector(".city-input").value)
+    search: function (e) {    
+        const parseNum = parseInt(e)
+        if(isNaN(parseNum)){
+            this.fetchWeather(e)
+        } else {
+            this.fetchWeatherByZip(e)
+        }
     }
 }
 
@@ -35,13 +49,13 @@ const searchInput = document.querySelector(".city-input")
 const imgBtn = document.querySelector(".img-button")
 
 imgBtn.addEventListener("click", () => {
-    weather.search()
+    weather.search(searchInput.value)
     searchInput.value = ""
 })
 
 searchInput.addEventListener("keyup", function (event) {
     if(event.key == "Enter"){
-    weather.search()
+    weather.search(searchInput.value)
     searchInput.value = ""
     }
 })
